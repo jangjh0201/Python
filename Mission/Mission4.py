@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import chromedriver_autoinstaller
 import subprocess
+import shutil
 
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
@@ -9,19 +10,30 @@ from selenium.webdriver.common.keys import Keys
 import schedule
 
 def getDriver(url):
-    subprocess.Popen(
-        r'C:/Program Files (x86)/Google\Chrome/Application/chrome.exe --remote-debugging-port=9222 --user-data-dir="C:/chrometemp"')  # 디버거 크롬 구동
+    def onDebugger (options, debugger):
+        if debugger == True:
+            try:
+                shutil.rmtree(r"c:\chrometemp")  #쿠키 / 캐쉬파일 삭제
+            except FileNotFoundError:
+                pass
+            subprocess.Popen(
+                r'C:/Program Files (x86)/Google\Chrome/Application/chrome.exe --remote-debugging-port=9222 --user-data-dir="C:/chrometemp"')  # 디버거 크롬 구동
+            options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
+        else:
+            options.add_argument('--headless')
+        return options
 
-    option = Options()
-    option.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
+    options = Options()
+    options = onDebugger(options, True)
+    
 
     chrome_ver = chromedriver_autoinstaller.get_chrome_version().split('.')[0]
 
     try:
-        driver = webdriver.Chrome(f'./{chrome_ver}/chromedriver.exe', options=option)
+        driver = webdriver.Chrome(f'./{chrome_ver}/chromedriver.exe', options=options)
     except:
         chromedriver_autoinstaller.install(True)
-        driver = webdriver.Chrome(f'./{chrome_ver}/chromedriver.exe', options=option)
+        driver = webdriver.Chrome(f'./{chrome_ver}/chromedriver.exe', options=options)
     driver.implicitly_wait(10)
 
     driver.get(url)
@@ -35,7 +47,7 @@ def getData(driver):
             num = driver.find_element_by_xpath(f'//*[@id="app"]/div/main/div/section/section[1]/div[2]/div[{i}]/div[{j}]/a/span[1]').text
             text = driver.find_element_by_xpath(f'//*[@id="app"]/div/main/div/section/section[1]/div[2]/div[{i}]/div[{j}]/a/span[2]').text
             print(num," : ", text)
-
+0
 if __name__ == '__main__':
     url = 'https://www.signal.bz/'
     driver = getDriver(url)
