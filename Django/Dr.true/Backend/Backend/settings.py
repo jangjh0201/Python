@@ -30,15 +30,20 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+BASE_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app.apps.AppConfig',
 ]
+
+MY_APP =  [
+    'myapp.Crawler',
+]
+
+INSTALLED_APPS = BASE_APPS + MY_APP
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
