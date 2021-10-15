@@ -11,7 +11,6 @@ def score_board(request):
     
     # 전체 페이지 html 가지고 오기
     soup = BeautifulSoup(req.text, 'html.parser')
-	    
     
     # ul 태그를 가지고 오려고 하는데 ul 태그의 id 가 todaySchedule이고
     # ul 태그 안에 있는 모든 li를 today_schedule변수 안에 넣는다.
