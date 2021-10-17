@@ -25,7 +25,6 @@ def getDriver(url):
 
     options = Options()
     options = onDebugger(options, True)
-    
 
     chrome_ver = chromedriver_autoinstaller.get_chrome_version().split('.')[0]
 
@@ -48,10 +47,10 @@ def getData(driver):
             text = driver.find_element_by_xpath(f'//*[@id="app"]/div/main/div/section/section[1]/div[2]/div[{i}]/div[{j}]/a/span[2]').text
             print(num," : ", text)
 
-if __name__ == '__main__':
+def main():
     url = 'https://www.signal.bz/'
     driver = getDriver(url)
     getData(driver)
-    schedule.every(10).minutes.do(getData, driver)
+    schedule.every(1).hours.do(getData, driver)
     while True:
         schedule.run_pending()
