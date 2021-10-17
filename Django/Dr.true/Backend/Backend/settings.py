@@ -40,7 +40,7 @@ BASE_APPS = [
 ]
 
 MY_APP =  [
-    'myapp.Kbo',
+    'myapp.kbo',
 ]
 
 INSTALLED_APPS = BASE_APPS + MY_APP

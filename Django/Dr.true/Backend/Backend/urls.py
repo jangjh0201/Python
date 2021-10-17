@@ -18,5 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/kbo/', include('myapp.Kbo.urls'))
+    path('api/kbo/', include('myapp.kbo.urls'))
 ]
