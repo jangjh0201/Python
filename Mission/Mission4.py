@@ -47,7 +47,7 @@ def getData(driver):
             num = driver.find_element_by_xpath(f'//*[@id="app"]/div/main/div/section/section[1]/div[2]/div[{i}]/div[{j}]/a/span[1]').text
             text = driver.find_element_by_xpath(f'//*[@id="app"]/div/main/div/section/section[1]/div[2]/div[{i}]/div[{j}]/a/span[2]').text
             print(num," : ", text)
-0
+
 if __name__ == '__main__':
     url = 'https://www.signal.bz/'
     driver = getDriver(url)
