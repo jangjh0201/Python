@@ -41,6 +41,7 @@ BASE_APPS = [
 
 MY_APP =  [
     'myapp.kbo',
+    'myapp.mail',
 ]
 
 INSTALLED_APPS = BASE_APPS + MY_APP
