@@ -2,5 +2,5 @@ from django.urls import path
 from myapp.mail import views
 
 urlpatterns = [
-    path('', view=views.getDriver, name='score_board')
+    path('', view=views.main, name='main')
 ]
