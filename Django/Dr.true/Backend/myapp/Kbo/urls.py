@@ -1,5 +1,5 @@
 from django.urls import path
-from myapp.Crawler import views
+from myapp.Kbo import views
 
 urlpatterns = [
     path('', view=views.score_board, name='score_board')

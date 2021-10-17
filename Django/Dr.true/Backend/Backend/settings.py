@@ -40,7 +40,7 @@ BASE_APPS = [
 ]
 
 MY_APP =  [
-    'myapp.Crawler',
+    'myapp.Kbo',
 ]
 
 INSTALLED_APPS = BASE_APPS + MY_APP
