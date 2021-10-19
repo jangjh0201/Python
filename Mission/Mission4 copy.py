@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.options import Options
 import chromedriver_autoinstaller
 import subprocess
 import shutil
-from selenium.webdriver.chrome.webdriver import WebDriver
+from selenium.webdriver.chrome.webdriver import WebDriver 
 
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
@@ -58,8 +58,8 @@ class Mail:
                 pyperclip.copy(temp_user_input)  # 사용자 클립보드에 저장 된 내용을 다시 가져 옴
 
         login = {
-            "id": "jangjh0201@gmail.com",
-            "pw": "jangjh7917"
+            "id": "a",
+            "pw": "b"
         }
         clipInput(self, '//*[@id="identifierId"]', login.get("id"))
         self.driver.find_element_by_xpath('//*[@id="identifierNext"]/div/button').click()
