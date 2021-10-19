@@ -48,9 +48,9 @@ def getData(driver):
             print(num," : ", text)
 
 def main():
-    url = 'https://www.signal.bz/'
+    url = 'https://mail.google.com/mail/u/0/#search/from%3A(agro-shop%40naver.com)+is%3Aunread'
     driver = getDriver(url)
-    getData(driver)
-    schedule.every(1).hours.do(getData, driver)
-    while True:
-        schedule.run_pending()
+    # getData(driver)
+    # schedule.every(1).hours.do(getData, driver)
+    # while True:
+    #     schedule.run_pending()

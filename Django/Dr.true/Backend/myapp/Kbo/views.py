@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from django.http import HttpResponse
+#from django.http import HttpResponse
 
 def score_board(request):
     # 크롤링 할 웹 주소
@@ -43,4 +43,4 @@ def score_board(request):
         print(right_team, right_team_score)
         print('----------------------------------')
 
-    return HttpResponse('')
+    #return HttpResponse('')
