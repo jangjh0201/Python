@@ -3,8 +3,9 @@ import email
 from email.header import decode_header, make_header
 
 socket = imaplib.IMAP4_SSL("imap.gmail.com", port=993)
-
-socket.login("dr.truefood@gmail.com", "zndWkr9630@")
+id = ""
+pwd = ""
+socket.login(id, pwd)
 
 socket.select('INBOX')
 
